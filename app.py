@@ -10,7 +10,7 @@ st.title("🛍️ Customer Segmentation using K-Means Clustering")
 uploaded_file = st.file_uploader("Upload your customer dataset (CSV)", type=["csv"])
 
 if uploaded_file:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv(Mall_customers.csv)
     st.write("### Data Preview", df.head())
 
     selected_columns = st.multiselect("Select features for clustering", df.columns)
