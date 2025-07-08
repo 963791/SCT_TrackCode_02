@@ -5,7 +5,7 @@ from sklearn.cluster import KMeans
 def preprocess_data(df, selected_columns):
     df_processed = df[selected_columns].copy()
 
-    # Convert Annual Income to Rupees
+    # Convert income if present
     if 'Annual Income (k$)' in df_processed.columns:
         df_processed['Annual Income (₹)'] = df_processed['Annual Income (k$)'] * 1000 * 83
         df_processed.drop(columns=['Annual Income (k$)'], inplace=True)
@@ -22,4 +22,3 @@ def apply_kmeans(scaled_data, n_clusters):
     model = KMeans(n_clusters=n_clusters, random_state=42)
     clusters = model.fit_predict(scaled_data)
     return clusters, model
-
