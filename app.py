@@ -53,18 +53,33 @@ if selected_columns:
     # 2D Plot
     if len(final_features) == 2:
         st.write("### 2D Cluster Visualization")
-        plt.figure(figsize=(8, 5))
-        sns.scatterplot(
-            x=final_features[0],
-            y=final_features[1],
-            hue=df['Cluster'],
-            palette="Set2",
-            s=100
-        )
-        plt.title("Customer Segments")
-        plt.xlabel(final_features[0])
-        plt.ylabel(final_features[1])
-        st.pyplot(plt)
+       import numpy as np
+
+st.write("### 2D Cluster Visualization")
+
+        import numpy as np
+
+st.write("### 2D Cluster Visualization")
+    
+    # Create a new DataFrame with scaled features and clusters
+    plot_df = pd.DataFrame(scaled_data, columns=final_features)
+    plot_df['Cluster'] = clusters
+    
+    plt.figure(figsize=(8, 5))
+    sns.scatterplot(
+        data=plot_df,
+        x=final_features[0],
+        y=final_features[1],
+        hue='Cluster',
+        palette="Set2",
+        s=100
+    )
+    plt.title("Customer Segments")
+    plt.xlabel(final_features[0])
+    plt.ylabel(final_features[1])
+    st.pyplot(plt)
+
+
     else:
         st.info("Select exactly 2 numerical features to show 2D cluster plot.")
 else:
