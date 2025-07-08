@@ -6,7 +6,7 @@ from kmeans_model import preprocess_data, apply_kmeans
 
 st.set_page_config(page_title="Mall Customer Segmentation", layout="centered")
 
-st.title("🛍️ Mall Customer Segmentation using K-Means")
+st.title("🛍️ K-Means Customer Segmentation App")
 st.markdown("Use the built-in dataset or upload your own.")
 
 # Load built-in dataset
